@@ -6,6 +6,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 dotenv.config();
 const app = express();
+const cors = require('cors');
 const PORT = process.env.PORT || 3000;
 
 //MONGODB Connection
@@ -18,6 +19,7 @@ mongoose
 
 //Middleware
 app.use(express.json());
+app.use(cors()); // Allow all origins
 
 //Route
 app.get("/", (req: Request, res: Response) => {
