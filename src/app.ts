@@ -25,7 +25,7 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.use("/auth/", authRoute);
-app.use("/comment", commentRouter);
+app.use("/comments", commentRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running on PORT:${PORT}`);
