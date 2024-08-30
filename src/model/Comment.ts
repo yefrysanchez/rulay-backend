@@ -6,12 +6,11 @@ const commentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+  userName: {
+    type: String,
     required: true,
   },
-  post: {
+  postId: {
     type: String,
     required: true,
   },
@@ -19,6 +18,10 @@ const commentSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  email: {
+    type: String,
+    required: true
+  }
 });
 
 // Create the Comment model

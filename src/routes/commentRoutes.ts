@@ -9,16 +9,16 @@ commentRouter.get("/", async (req, res) => {
   res.status(200).json(comment);
 });
 
-/// get Create comment
+/// Post Create comment
 
 commentRouter.post("/", async (req, res) => {
-  const { comment, post, createdAt, user } = req.body;
+  const { comment, postId, userName, email } = req.body;
   try {
-    if (!comment || !post || !createdAt || !user) {
+    if (!comment || !postId || !userName || !email) {
       return res.status(400).json({ msg: "Missing fields" });
     }
     //Comment creation
-    const newComment = new Comment({ Comment, post, createdAt, user });
+    const newComment = new Comment({ comment, postId, userName, email });
     await newComment.save();
 
     //Comment create notification
